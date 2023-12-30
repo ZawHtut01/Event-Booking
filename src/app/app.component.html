@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg navbar-white myNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/eventLogo.png" alt="" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" *ngIf="loggedUserData?.role == 'Event Planner'" >
+                    <a class="nav-link active" aria-current="page" routerLink="/new-Event">Create Event</a>
+                </li>
+                <li class="nav-item" *ngIf="loggedUserData?.role == 'Event Planner'" >
+                    <a class="nav-link active" aria-current="page" routerLink="/Event-List">Events </a>
+                </li>
+                <li class="nav-item" *ngIf="loggedUserData?.role == 'Event Planner'" >
+                    <a class="nav-link active" aria-current="page" routerLink="/event-bookings">Bookings </a>
+                </li>
+                <li class="nav-item" *ngIf="loggedUserData?.role == 'Customer'" >
+                    <a class="nav-link active" aria-current="page" routerLink="/my-bookings">My Bookings </a>
+                </li>
+            </ul>
+            <form class="d-flex" *ngIf="!isUserLoggedin">
+                <button class="btn btn-outline-primary round-button mx-2" type="button"
+                    (click)="openLogin()">Login</button>
+                <button class="btn btn-success round-button" type="button" (click)="onRegiste()">Register</button>
+            </form>
+            <form class="d-flex" *ngIf="isUserLoggedin">
+                
+                <button class="btn " (click)="onLogoff()" type="button">{{loggedUserData.contactNo}}</button>
+                <button class="btn btn-success round-button" (click)="onLogoff()" type="button">LogOff</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container pt-2">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="login-container">
+                    
+                    <form *ngIf="isLoginView">
+                        <h3>Login</h3>
+                        <label for="username">Contact No</label>
+                        <input type="text" id="username" [(ngModel)]="loginObj.ContactNo" name="username" required>
+
+                        <label for="password">Password</label>
+                        <input type="password" id="password" [(ngModel)]="loginObj.Password" name="password" required>
+
+                        <button type="button" class="mt-2" (click)="onLogin()">Login</button>
+                        <p>Don't have an account? <span (click)="isLoginView = false">Sign up here</span></p>
+                    </form>
+                    <form *ngIf="!isLoginView">
+                        <h3>Register</h3>
+                        <label for="username">Name</label>
+                        <input type="text" id="username" [(ngModel)]="registerObj.Name" name="Name" required>
+                        <label for="username">Email</label>
+                        <input type="text" id="username" [(ngModel)]="registerObj.Email" name="Email" required>
+                        <label for="username">Password</label>
+                        <input type="text" id="username" [(ngModel)]="registerObj.Password" name="Password" required>
+                        <label for="password">Contact No</label>
+                        <input type="password" id="password" [(ngModel)]="registerObj.ContactNo" name="ContactNo"
+                            required>
+                        <label for="password">What Are You</label>
+                        <select [(ngModel)]="registerObj.Role" name="Role">
+                            <option value="">Select Your Role</option>
+                            <option value="Event Planner">Event Planner</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                        <button type="button" class="mt-2" (click)="onRegister()">Register</button>
+                        <p>Login If Already Registered? <span (click)="isLoginView = true">Login</span></p>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
