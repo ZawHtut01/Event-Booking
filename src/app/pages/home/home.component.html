@@ -1,4 +1,3 @@
-
 <section class="schedule-section spad pt-4">
     <div class="container">
         <div class="row">
@@ -6,7 +5,7 @@
                 <div class="section-title">
                     <h2>Upcoming Events</h2>
                     <h2>Zaw Htut</h2>
-
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, qui.</p>
                     <p>browse various ongoing events</p>
                 </div>
             </div>
@@ -53,15 +52,15 @@
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="sc-pic">
-                                                <img [src]="event.imageUrl"
-                                                    alt="">
+                                                <img [src]="event.imageUrl" alt="">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="sc-text">
                                                 <h4>{{event.eventName}}</h4>
                                                 <ul>
-                                                    <li><i class="fa  fa-clock-o"></i> {{event.startDate | date:'dd-MM-yy'}} -   {{event.startTime}}</li>
+                                                    <li><i class="fa  fa-clock-o"></i> {{event.startDate |
+                                                        date:'dd-MM-yy'}} - {{event.startTime}}</li>
                                                     <li><i class="fa fa-map-marker"></i> {{event.location}}
                                                     </li>
                                                 </ul>
@@ -83,9 +82,9 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -97,8 +96,8 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="login-container"> 
-                     <table class="table">
+                <div class="login-container">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <td>
@@ -107,11 +106,11 @@
                                 </td>
                                 <td>
                                     <label>Age</label>
-                                    <input type="text" [(ngModel)]="eventMemebrs.Age"   class="form-control">
+                                    <input type="text" [(ngModel)]="eventMemebrs.Age" class="form-control">
                                 </td>
                                 <td>
                                     <label>Identity Card</label>
-                                    <select class="form-control" [(ngModel)]="eventMemebrs.IdentityCard" >
+                                    <select class="form-control" [(ngModel)]="eventMemebrs.IdentityCard">
                                         <option value="">Select</option>
                                         <option value="Aadhar Card">Aadhar Card</option>
                                         <option value="Pan Card">Pan Card</option>
@@ -119,14 +118,14 @@
                                 </td>
                                 <td>
                                     <label>Identity No</label>
-                                    <input type="text"  [(ngModel)]="eventMemebrs.CardNo"  class="form-control">
+                                    <input type="text" [(ngModel)]="eventMemebrs.CardNo" class="form-control">
                                 </td>
                                 <td>
                                     <label>Contact No</label>
-                                    <input type="text" [(ngModel)]="eventMemebrs.ContactNo"   class="form-control">
+                                    <input type="text" [(ngModel)]="eventMemebrs.ContactNo" class="form-control">
                                 </td>
                                 <td>
-                                    <button class="btn btn-sm btn-success" (click)="AddMember()" >Add</button>
+                                    <button class="btn btn-sm btn-success" (click)="AddMember()">Add</button>
                                 </td>
                             </tr>
                         </thead>
@@ -136,20 +135,18 @@
                                 <td>{{member.Age}}</td>
                                 <td>{{member.IdentityCard}}</td>
                                 <td>{{member.CardNo}}</td>
-                                <td>{{member.ContactNo}}</td> 
+                                <td>{{member.ContactNo}}</td>
                             </tr>
                         </tbody>
-                     </table>
-                     <div class="row">
+                    </table>
+                    <div class="row">
                         <div class="col-12">
                             <button class="btn btn-primary" (click)="makeBooking()">Make Booking</button>
                         </div>
-                     </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
-
-
